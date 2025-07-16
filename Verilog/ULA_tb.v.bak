@@ -1,0 +1,62 @@
+
+// bancada de testes para a ULA
+`timescale 1ns/1ps 
+module ULA_tb(
+	reg [3:0] controladorULA,
+	reg [31:0] dados1,
+	reg [31:0] dados2,
+	reg [31:0] saida,
+	wire zero 
+);
+
+// conexão dos reg com os fios da ULA para bancada de testes
+pc_uut(
+.controladorULA(controladorULA),
+.dados1(dados1),
+.dados2(dados2),
+.saida(saida),
+.zero(zero)
+);
+
+initial begin
+
+$dumpfile("ondaULA.vcd");
+$dumpvars(0, ULA_tb);
+
+#10; // aguarda 10 ns
+
+// teste de soma
+controladorULA = 4'b0010;
+dados1 = 32'd10;
+dados2 = 32'd15; 
+#10;
+
+// teste de subtração
+controladorULA = 4'b0110;
+dados1 = 32'd20;
+dados2 = 32'd5; 
+#10;
+
+// teste de set on less
+controladorULA = 4'b0111;
+dados1 = 32'd10;
+dados2 = 32'd15; 
+#10;
+
+// teste de and
+controladorULA = 4'b0000;
+dados1 = 32'b0000_0000_0000_0000_0000_0010_0000_1100;
+dados2 = 32'b0000_0000_0000_0000_0000_0000_0100_1100; 
+#10;
+
+// teste de ou
+controladorULA = 4'b0001;
+dados1 = 32'b0000_0000_0000_0000_0000_0010_0000_1100;
+dados2 = 32'b0000_0000_0000_0000_0000_0000_0100_1100; 
+#10;
+
+$finish;
+
+end
+
+end module

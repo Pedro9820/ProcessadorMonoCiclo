@@ -1,0 +1,10 @@
+// a ula recebe 2 entradas de dados, não precisa receber o ULA controle, porquem quem recebe isso é o MUX que decide os dados da
+// 2 entrada da ULA.
+
+module ULA(
+input wire dados1,
+input wire dados2,
+output wire saida
+);
+
+

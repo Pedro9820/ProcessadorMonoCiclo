@@ -1,0 +1,389 @@
+$date
+	Wed Jul 16 09:50:45 2025
+$end
+$version
+	ModelSim Version 2020.1
+$end
+$timescale
+	1ps
+$end
+
+$scope module ULA_tb $end
+$var reg 4 ! controladorULA_tb [3:0] $end
+$var reg 32 " dados1_tb [31:0] $end
+$var reg 32 # dados2_tb [31:0] $end
+$var wire 1 $ saida_tb [31] $end
+$var wire 1 % saida_tb [30] $end
+$var wire 1 & saida_tb [29] $end
+$var wire 1 ' saida_tb [28] $end
+$var wire 1 ( saida_tb [27] $end
+$var wire 1 ) saida_tb [26] $end
+$var wire 1 * saida_tb [25] $end
+$var wire 1 + saida_tb [24] $end
+$var wire 1 , saida_tb [23] $end
+$var wire 1 - saida_tb [22] $end
+$var wire 1 . saida_tb [21] $end
+$var wire 1 / saida_tb [20] $end
+$var wire 1 0 saida_tb [19] $end
+$var wire 1 1 saida_tb [18] $end
+$var wire 1 2 saida_tb [17] $end
+$var wire 1 3 saida_tb [16] $end
+$var wire 1 4 saida_tb [15] $end
+$var wire 1 5 saida_tb [14] $end
+$var wire 1 6 saida_tb [13] $end
+$var wire 1 7 saida_tb [12] $end
+$var wire 1 8 saida_tb [11] $end
+$var wire 1 9 saida_tb [10] $end
+$var wire 1 : saida_tb [9] $end
+$var wire 1 ; saida_tb [8] $end
+$var wire 1 < saida_tb [7] $end
+$var wire 1 = saida_tb [6] $end
+$var wire 1 > saida_tb [5] $end
+$var wire 1 ? saida_tb [4] $end
+$var wire 1 @ saida_tb [3] $end
+$var wire 1 A saida_tb [2] $end
+$var wire 1 B saida_tb [1] $end
+$var wire 1 C saida_tb [0] $end
+$var wire 1 D zero_tb $end
+
+$scope module uut $end
+$var wire 1 E controladorULA [3] $end
+$var wire 1 F controladorULA [2] $end
+$var wire 1 G controladorULA [1] $end
+$var wire 1 H controladorULA [0] $end
+$var wire 1 I dados1 [31] $end
+$var wire 1 J dados1 [30] $end
+$var wire 1 K dados1 [29] $end
+$var wire 1 L dados1 [28] $end
+$var wire 1 M dados1 [27] $end
+$var wire 1 N dados1 [26] $end
+$var wire 1 O dados1 [25] $end
+$var wire 1 P dados1 [24] $end
+$var wire 1 Q dados1 [23] $end
+$var wire 1 R dados1 [22] $end
+$var wire 1 S dados1 [21] $end
+$var wire 1 T dados1 [20] $end
+$var wire 1 U dados1 [19] $end
+$var wire 1 V dados1 [18] $end
+$var wire 1 W dados1 [17] $end
+$var wire 1 X dados1 [16] $end
+$var wire 1 Y dados1 [15] $end
+$var wire 1 Z dados1 [14] $end
+$var wire 1 [ dados1 [13] $end
+$var wire 1 \ dados1 [12] $end
+$var wire 1 ] dados1 [11] $end
+$var wire 1 ^ dados1 [10] $end
+$var wire 1 _ dados1 [9] $end
+$var wire 1 ` dados1 [8] $end
+$var wire 1 a dados1 [7] $end
+$var wire 1 b dados1 [6] $end
+$var wire 1 c dados1 [5] $end
+$var wire 1 d dados1 [4] $end
+$var wire 1 e dados1 [3] $end
+$var wire 1 f dados1 [2] $end
+$var wire 1 g dados1 [1] $end
+$var wire 1 h dados1 [0] $end
+$var wire 1 i dados2 [31] $end
+$var wire 1 j dados2 [30] $end
+$var wire 1 k dados2 [29] $end
+$var wire 1 l dados2 [28] $end
+$var wire 1 m dados2 [27] $end
+$var wire 1 n dados2 [26] $end
+$var wire 1 o dados2 [25] $end
+$var wire 1 p dados2 [24] $end
+$var wire 1 q dados2 [23] $end
+$var wire 1 r dados2 [22] $end
+$var wire 1 s dados2 [21] $end
+$var wire 1 t dados2 [20] $end
+$var wire 1 u dados2 [19] $end
+$var wire 1 v dados2 [18] $end
+$var wire 1 w dados2 [17] $end
+$var wire 1 x dados2 [16] $end
+$var wire 1 y dados2 [15] $end
+$var wire 1 z dados2 [14] $end
+$var wire 1 { dados2 [13] $end
+$var wire 1 | dados2 [12] $end
+$var wire 1 } dados2 [11] $end
+$var wire 1 ~ dados2 [10] $end
+$var wire 1 !! dados2 [9] $end
+$var wire 1 "! dados2 [8] $end
+$var wire 1 #! dados2 [7] $end
+$var wire 1 $! dados2 [6] $end
+$var wire 1 %! dados2 [5] $end
+$var wire 1 &! dados2 [4] $end
+$var wire 1 '! dados2 [3] $end
+$var wire 1 (! dados2 [2] $end
+$var wire 1 )! dados2 [1] $end
+$var wire 1 *! dados2 [0] $end
+$var reg 32 +! saida [31:0] $end
+$var wire 1 D zero $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bx !
+bx "
+bx #
+bx +!
+xC
+xB
+xA
+x@
+x?
+x>
+x=
+x<
+x;
+x:
+x9
+x8
+x7
+x6
+x5
+x4
+x3
+x2
+x1
+x0
+x/
+x.
+x-
+x,
+x+
+x*
+x)
+x(
+x'
+x&
+x%
+x$
+xD
+x*!
+x)!
+x(!
+x'!
+x&!
+x%!
+x$!
+x#!
+x"!
+x!!
+x~
+x}
+x|
+x{
+xz
+xy
+xx
+xw
+xv
+xu
+xt
+xs
+xr
+xq
+xp
+xo
+xn
+xm
+xl
+xk
+xj
+xi
+xh
+xg
+xf
+xe
+xd
+xc
+xb
+xa
+x`
+x_
+x^
+x]
+x\
+x[
+xZ
+xY
+xX
+xW
+xV
+xU
+xT
+xS
+xR
+xQ
+xP
+xO
+xN
+xM
+xL
+xK
+xJ
+xI
+xH
+xG
+xF
+xE
+$end
+#10000
+b10 !
+b1010 "
+b1111 #
+1*!
+1)!
+1(!
+1'!
+0&!
+0%!
+0$!
+0#!
+0"!
+0!!
+0~
+0}
+0|
+0{
+0z
+0y
+0x
+0w
+0v
+0u
+0t
+0s
+0r
+0q
+0p
+0o
+0n
+0m
+0l
+0k
+0j
+0i
+0h
+1g
+0f
+1e
+0d
+0c
+0b
+0a
+0`
+0_
+0^
+0]
+0\
+0[
+0Z
+0Y
+0X
+0W
+0V
+0U
+0T
+0S
+0R
+0Q
+0P
+0O
+0N
+0M
+0L
+0K
+0J
+0I
+0H
+1G
+0F
+0E
+b11001 +!
+0D
+1C
+0B
+0A
+1@
+1?
+0>
+0=
+0<
+0;
+0:
+09
+08
+07
+06
+05
+04
+03
+02
+01
+00
+0/
+0.
+0-
+0,
+0+
+0*
+0)
+0(
+0'
+0&
+0%
+0$
+#20000
+b110 !
+b10100 "
+b101 #
+0)!
+0'!
+0g
+1f
+0e
+1d
+1F
+b1111 +!
+1B
+1A
+0?
+#30000
+b111 !
+b1010 "
+b1111 #
+1)!
+1'!
+1g
+0f
+1e
+0d
+1H
+b1 +!
+0B
+0A
+0@
+#40000
+b0 !
+b1000001100 "
+b1001100 #
+0*!
+0)!
+1$!
+0g
+1f
+1_
+0H
+0G
+0F
+b1100 +!
+0C
+1A
+1@
+#50000
+b1 !
+1H
+b1001001100 +!
+1=
+1:

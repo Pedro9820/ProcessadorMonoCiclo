@@ -1,0 +1,59 @@
+# Reading pref.tcl
+# do ProcessadorMonoCiclo_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/PedroPC/Documentos/Codigos/Verilog {C:/Users/PedroPC/Documentos/Codigos/Verilog/ULA.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 09:50:37 on Jul 16,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/PedroPC/Documentos/Codigos/Verilog" C:/Users/PedroPC/Documentos/Codigos/Verilog/ULA.v 
+# -- Compiling module ULA
+# 
+# Top level modules:
+# 	ULA
+# End time: 09:50:37 on Jul 16,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/PedroPC/Documentos/Codigos/Verilog {C:/Users/PedroPC/Documentos/Codigos/Verilog/ULA_tb.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 09:50:37 on Jul 16,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/PedroPC/Documentos/Codigos/Verilog" C:/Users/PedroPC/Documentos/Codigos/Verilog/ULA_tb.v 
+# -- Compiling module ULA_tb
+# 
+# Top level modules:
+# 	ULA_tb
+# End time: 09:50:37 on Jul 16,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L maxv_ver -L rtl_work -L work -voptargs="+acc"  ULA_tb
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L maxv_ver -L rtl_work -L work -voptargs=""+acc"" ULA_tb 
+# Start time: 09:50:37 on Jul 16,2025
+# Loading work.ULA_tb
+# Loading work.ULA
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# ** Note: $finish    : C:/Users/PedroPC/Documentos/Codigos/Verilog/ULA_tb.v(58)
+#    Time: 60 ns  Iteration: 0  Instance: /ULA_tb
+# 1
+# Break in Module ULA_tb at C:/Users/PedroPC/Documentos/Codigos/Verilog/ULA_tb.v line 58
+# WARNING: No extended dataflow license exists
+add wave  \
+sim:/ULA_tb/controladorULA_tb \
+sim:/ULA_tb/dados1_tb \
+sim:/ULA_tb/dados2_tb \
+sim:/ULA_tb/saida_tb \
+sim:/ULA_tb/zero_tb
+# End time: 09:56:58 on Jul 16,2025, Elapsed time: 0:06:21
+# Errors: 0, Warnings: 0
