@@ -1,6 +1,6 @@
 module i_mem(
 	Address,
-	i_out,
+	i_out
 );
 
 	// parametros para criação da memoria
@@ -17,7 +17,7 @@ module i_mem(
 	// leitura do arquivo de teste instruction.list
 	initial begin
 		// lê o valor binário desse arquivo
-		$readmemb("instruction.list", memoria);
+		$readmemb("instructions.list", memoria);
 	end
 	
 assign i_out = memoria[Address[enderecamento + 1 :2]]; //slice da sequencia de 32bits, para ler o endereco no vetor de memoria

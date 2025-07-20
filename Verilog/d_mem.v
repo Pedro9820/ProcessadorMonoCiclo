@@ -1,15 +1,27 @@
 
-module d_mem(
-	input wire Clock,
-	input wire [31:0] Address,
-	input wire [31:0] WriteData,
-	input wire MemWrite,
-	input wire MemRead,
-	output wire [31:0] ReadData
+module d_mem (
+	Clock,
+	Address,
+	WriteData,
+	MemWrite,
+	MemRead,
+	ReadData
 );
+	// parametros para criação da memoria
+	parameter tamanho = 32; // entrada de bits do mips
+	parameter enderecamento = 10; // enderecamento de palavra de 4 bits
+
+	// Declaração das portas
+	input wire Clock;
+	input wire [tamanho - 1:0] Address;
+	input wire [tamanho - 1:0] WriteData;
+	input wire MemWrite;
+	input wire MemRead;
+	output wire [tamanho - 1:0] ReadData;
+	localparam tamanhoVetor = 1 << enderecamento; // tamanho do vetor é calculado com 2 ^ enderecamento
 	
 	//primeiro inicializar a memoria do sistema em um vetor
-	reg [31:0] memoria[0:1023]; // equivale a 4kb de memoria, 1024 * 32 bits
+	reg [tamanho - 1:0] memoria[0:tamanhoVetor - 1]; // tamanho de memoria parametrizavel
 	
 	// Primeira etapa, ver se a função é descrita
 	// Se a flag de ler ta em 0, então é porque é pra escrever dados
@@ -20,14 +32,14 @@ module d_mem(
 	// 4 = 0100, 8 = 1000, 12 = 1100, 16 = 1 0000 ...
 	// além disso, como em Assembly Mips, cada palavra é composta de 4 bytes
 	// Podemos já dividir o valor de endereço por 4
-	memoria[Address[11:2]] <= WriteData; // <= significa que a atribuição é feita em paralelo, onde empilha cada uma
+	memoria[Address[enderecamento + 1:2]] <= WriteData; // <= significa que a atribuição é feita em paralelo, onde empilha cada uma
 	end											// e executa todas de uma vez
 	end
 	
 	//Segunda etapa, é verificar a flag de leitura e então ler
 	// mux simples para leitura de dados
 	// é lógica combinacional com leitura imediata e não sincrona
-	assign ReadData = (MemRead)? memoria[Address[11:2]] : 32'bz; // vi que bz significa estado desligado se não esta lendo dados
+	assign ReadData = (MemRead)? memoria[Address[enderecamento + 1:2]] : {tamanho{1'bz}}; // vi que bz significa estado desligado se não esta lendo dados
 	
 	
 endmodule

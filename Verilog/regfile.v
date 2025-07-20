@@ -12,7 +12,8 @@ module regfile(
 	output wire [31:0] ReadData1,
 	output wire [31:0] ReadData2
 );
-
+// não dá pra iniciar variavel dentro de um bloco begin nessa linguagem arcaica
+integer i;
 // os 32 registradores do mips em um vetor
 reg [31:0] registradores[0:31];
 
@@ -21,8 +22,7 @@ reg [31:0] registradores[0:31];
 always @(posedge Clock or posedge Reset) begin
 // se é reset, coloca todos os registradores com valor 0,
 	if(Reset) begin
-	integer i;
-	for(i = 0; i < 32; i = i + 1) begin
+	for(i = 0; i < 32; i = i + 1) begin // não existe i++ nessa linguagem de dinossauros
 	registradores[i] <= 32'b0;
 	end
 end else begin // se não é pra resetar, faz a escrita normalmente
