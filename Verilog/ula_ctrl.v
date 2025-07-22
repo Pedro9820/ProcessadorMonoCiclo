@@ -9,7 +9,7 @@ module ula_ctrl(
 	// facilita a leitura pra não ter que abrir o arquivo da ula e ver o código de cada função
 	localparam AND_OP = 4'b0000;
 	localparam OR_OP = 4'b0001;
-	localparam ADD_OP = 4'b0010;
+	localparam ADD_OP = 4'b0101;
 	localparam XOR_OP = 4'b0011;
 	localparam NOR_OP = 4'b0100;
 	localparam SUB_OP = 4'b0110;
@@ -22,7 +22,7 @@ module ula_ctrl(
 	always @(*) begin
 		// Decodifica o campo 'Func' para determinar a operação da ULA
 		case(Func)
-			// Funct codes padrão do MIPS para as instruções do projeto (fonte [35])
+			
 			6'b100000: OP = ADD_OP;  // add
 			6'b100010: OP = SUB_OP;  // sub
 			6'b100100: OP = AND_OP;  // and
@@ -37,7 +37,7 @@ module ula_ctrl(
 			6'b000100: OP = SLL_OP;  // sllv
 			6'b000110: OP = SRL_OP;  // srlv
 			6'b000111: OP = SRA_OP;  // srav
-			// jr (funct=001000) não usa a ULA, então não precisa de um caso aqui.
+			
 			default:   OP = 4'bxxxx; // Funct não suportado
 		endcase
 	end

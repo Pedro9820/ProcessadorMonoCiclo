@@ -16,7 +16,7 @@ module ctrl(
 		// Mapeamento dos códigos da ULA para facilitar a leitura
 		localparam AND_OP = 4'b0000;
 		localparam OR_OP = 4'b0001;
-		localparam ADD_OP = 4'b0010;
+		localparam ADD_OP = 4'b0101;
 		localparam XOR_OP = 4'b0011;
 		localparam NOR_OP = 4'b0100;
 		localparam SUB_OP = 4'b0110;

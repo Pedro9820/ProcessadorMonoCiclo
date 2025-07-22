@@ -41,14 +41,25 @@ module ProcessadorMonoCiclo_tb;
         mem_out_atrasado_tb <= mem_out_tb;
     end
 
-    // Monitor com mem_out atrasado, senão ele não consegue ler
-    initial begin	
-       $monitor("[%0t] PC=%h, ALU_Result=%h, MEM_Out=%h | ln1=%h, ln2=%h, alu_op=%b | WR[%0d]=%h | MEM_WR=%h",
-         $time, pc_out_tb, alu_out_tb, mem_out_atrasado_tb,
-         debug_ln1_tb, debug_ln2_tb, debug_alu_op_tb,
-         debug_write_reg_tb, debug_write_data_tb, debug_mem_write_data_tb);
-
+    // Monitor que exibe a cada ciclo de clock
+always @(posedge clock_tb) begin
+    // Adicionado para não imprimir durante ou logo após o reset
+    if (reset_tb == 1'b0) begin 
+        if (debug_write_reg_tb == 5'b0) begin
+            // Usa $display para imprimir a mensagem condicional
+            $display("[%0t] PC=%h, ALU_Result=%h, MEM_Out=%h | ln1=%h, ln2=%h, alu_op=%b | WR: Tentativa de escrita no reg 0 | MEM_WR=%h",
+                $time, pc_out_tb, alu_out_tb, mem_out_atrasado_tb,
+                debug_ln1_tb, debug_ln2_tb, debug_alu_op_tb,
+                debug_mem_write_data_tb);
+        end else begin
+            // Usa $display para imprimir a mensagem normal
+            $display("[%0t] PC=%h, ALU_Result=%h, MEM_Out=%h | ln1=%h, ln2=%h, alu_op=%b | WR[%0d]=%h | MEM_WR=%h",
+                $time, pc_out_tb, alu_out_tb, mem_out_atrasado_tb,
+                debug_ln1_tb, debug_ln2_tb, debug_alu_op_tb,
+                debug_write_reg_tb, debug_write_data_tb, debug_mem_write_data_tb);
+        end
     end
+end
 
     // Sequência de reset e finalização
     initial begin
@@ -56,7 +67,7 @@ module ProcessadorMonoCiclo_tb;
         reset_tb = 1;
         #15;
         reset_tb = 0;
-        #4000; // deve ser o suficiente pra durar a simulação
+        #600; // deve ser o suficiente pra durar a simulação
         $display("------ FIM DA SIMULACAO ------");
         $finish;
     end

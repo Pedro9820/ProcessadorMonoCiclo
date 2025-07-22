@@ -27,10 +27,11 @@ always @(posedge Clock or posedge Reset) begin
 	end
 end else begin // se não é pra resetar, faz a escrita normalmente
 // Não se pode sobscrever o que esta escrito no registrador 0.
-	if(RegWrite && (WriteAddr != 5'b0)) begin
+	if (RegWrite && WriteAddr !== 5'b0 && WriteAddr !== 5'bx) begin
 	registradores[WriteAddr] <= WriteData;
 	end
 end
+
 end
 
 // lógica de leitura

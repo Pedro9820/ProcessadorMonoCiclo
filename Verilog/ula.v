@@ -7,6 +7,9 @@ input wire [31:0] ln2,
 output reg [31:0] result,
 output wire Zero_flag // usado em operações de branch equals.
 );
+// sll ta me dando problema
+wire signed [31:0] s_ln1 = ln1;
+wire signed [31:0] s_ln2 = ln2;
 
 // um switch case para cada alu op
 // o * significa que qualquer mudança no valor dos fios, deve executar o switch case e fazer a operação
@@ -24,11 +27,11 @@ case (OP)
 	4'b0110: result = ln1 - ln2; 		// SUBTRAÇÃO
 	
 	// -----Operações de Comparação-----
-	4'b0111: result = (ln1 < ln2) ? 32'd1 : 32'd0;  						// SLTU
-	4'b1000: result = ($signed(ln1) < $signed(ln2)) ? 32'd1 : 32'd0;  // SLT
+	4'b0111: result = (ln1 < ln2) ? 32'd1 : 32'd0;				// SLTU
+	4'b1000: result = (s_ln1 < s_ln2) ? 32'd1 : 32'd0;   // SLT
 	
 	// -----Operações de Shift-----
-	4'b1001: result = ln1 << ln2[4:0]; 					// SLLV 
+	4'b1001: result = ln2 << ln1[4:0]; 					// SLLV 
 	4'b1010: result = ln1 >> ln2[4:0]; 					// SRL
 	4'b1011: result = ln1 >>> ln2[4:0];					// SRAV
 	4'b1100: result = ln1 << 16; 						//lui

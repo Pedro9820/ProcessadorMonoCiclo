@@ -171,7 +171,7 @@ assign debug_alu_op = alu_op_correta;
 
 assign debug_write_data = write_data_correto; // Saída que vai para WriteData do regfile
 assign debug_write_reg = write_reg_address;  // Registrador de destino
-assign debug_mem_write_data = read_data_2;
+assign debug_mem_write_data = read_data_2; // o write_data_correto acabou não sendo o correto no debug ironicamente
 
 
 

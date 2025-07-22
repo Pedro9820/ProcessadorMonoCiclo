@@ -17,7 +17,7 @@ module d_mem (
 	input wire [tamanho - 1:0] WriteData;
 	input wire MemWrite;
 	input wire MemRead;
-	output wire [tamanho - 1:0] ReadData;
+	output reg [tamanho - 1:0] ReadData;
 	localparam tamanhoVetor = 1 << enderecamento; // tamanho do vetor é calculado com 2 ^ enderecamento
 	
 	//primeiro inicializar a memoria do sistema em um vetor
@@ -34,12 +34,13 @@ module d_mem (
 	// Podemos já dividir o valor de endereço por 4
 	memoria[Address[enderecamento + 1:2]] <= WriteData; // <= significa que a atribuição é feita em paralelo, onde empilha cada uma
 	end											// e executa todas de uma vez
+	if (MemRead) begin
+		ReadData <= memoria[Address[enderecamento + 1:2]];
+	end
 	end
 	
-	//Segunda etapa, é verificar a flag de leitura e então ler
-	// mux simples para leitura de dados
-	// é lógica combinacional com leitura imediata e não sincrona
-	assign ReadData = (MemRead)? memoria[Address[enderecamento + 1:2]] : {tamanho{1'bz}}; // vi que bz significa estado desligado se não esta lendo dados
+
+
 	
 	
 endmodule
