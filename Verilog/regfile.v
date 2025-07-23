@@ -1,3 +1,15 @@
+/*
+	Arquitetura e Organização de computadores - 2025.1
+	Projeto para a 2VA
+	Processador MonoCiclo em verilog
+	Grupo: Guilherme Oliveira Aroucha
+			 Kleber Barbosa de Fraga
+			 Pedro Henrique Apolinario da Silva
+	Descrição do arquivo: Modulo RegFile para entrada dos registradores e saida da leitura dos dados
+
+*/
+
+
 // recebe o clock para sempre ir lendo novos dados na mudança de clock
 // recebe o comando de controle para escrever ou não
 // recebe as entradas de registradore de leitura ou escrita, e sai somente os dados lidos

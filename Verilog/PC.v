@@ -1,3 +1,14 @@
+/*
+	Arquitetura e Organização de computadores - 2025.1
+	Projeto para a 2VA
+	Processador MonoCiclo em verilog
+	Grupo: Guilherme Oliveira Aroucha
+			 Kleber Barbosa de Fraga
+			 Pedro Henrique Apolinario da Silva
+	Descrição do arquivo: Modulo do contador PC
+
+
+*/
 // modulo do pc, recebe o clock, e o reset 
 module PC(
 input wire clock, // entrada do clock

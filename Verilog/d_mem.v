@@ -1,4 +1,14 @@
+/*
+	Arquitetura e Organização de computadores - 2025.1
+	Projeto para a 2VA
+	Processador MonoCiclo em verilog
+	Grupo: Guilherme Oliveira Aroucha
+			 Kleber Barbosa de Fraga
+			 Pedro Henrique Apolinario da Silva
+	Descrição do arquivo: Memoria de dados
 
+
+*/
 module d_mem (
 	Clock,
 	Address,

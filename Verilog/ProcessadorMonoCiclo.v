@@ -1,3 +1,4 @@
+// nucleo do sistema que conecta todos os modelos e faz todas as saidas e entradas de fios
 module ProcessadorMonoCiclo(
 	input wire Clock,
 	input wire Reset,
@@ -142,7 +143,7 @@ d_mem d_mem_componente (
 	.MemRead(MemRead),
 	.ReadData(MEM_out)
 );
-
+// já calcula um possivel branch
 assign branch_address = PC_maismais + (sign_extended << 2);
 
 // estagio WB //

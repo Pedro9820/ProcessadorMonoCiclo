@@ -1,3 +1,15 @@
+/*
+	Arquitetura e Organização de computadores - 2025.1
+	Projeto para a 2VA
+	Processador MonoCiclo em verilog
+	Grupo: Guilherme Oliveira Aroucha
+			 Kleber Barbosa de Fraga
+			 Pedro Henrique Apolinario da Silva
+	Descrição do arquivo: Unidade de controle
+
+
+*/
+
 // os sinais são do tipo reg, porque somente estes podem ser alterados e repassados no fio para os outros modulos
 // output wire não permite modificação do dado.
 module ctrl(

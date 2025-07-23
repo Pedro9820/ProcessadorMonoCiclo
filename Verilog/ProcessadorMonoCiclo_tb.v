@@ -1,3 +1,15 @@
+/*
+	Arquitetura e Organização de computadores - 2025.1
+	Projeto para a 2VA
+	Processador MonoCiclo em verilog
+	Grupo: Guilherme Oliveira Aroucha
+			 Kleber Barbosa de Fraga
+			 Pedro Henrique Apolinario da Silva
+	Descrição do arquivo: Bancada de testes para o processador completo
+
+
+*/
+
 `timescale 1ns/1ps
 
 module ProcessadorMonoCiclo_tb;
@@ -12,7 +24,7 @@ module ProcessadorMonoCiclo_tb;
     wire [4:0] debug_write_reg_tb;
 	 wire [31:0] debug_mem_write_data_tb;
 
-    reg [31:0] mem_out_atrasado_tb;  // <= novo registrador de atraso
+    reg [31:0] mem_out_atrasado_tb;  // o clock tava deixando meio doido o mem out, ai vai ter uma cópia dele com um delay pra garantir que a leitura certa
 
     // Instancia o processador
 	 // usa os fios de debug lá do main
@@ -36,7 +48,7 @@ module ProcessadorMonoCiclo_tb;
         forever #5 clock_tb = ~clock_tb;
     end
 
-    // ⏱️ Atraso de 1 ciclo no mem_out
+    // Atraso de 1 ciclo no mem_out
     always @(posedge clock_tb) begin
         mem_out_atrasado_tb <= mem_out_tb;
     end

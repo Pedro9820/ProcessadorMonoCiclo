@@ -1,9 +1,21 @@
 
+/*
+	Arquitetura e Organização de computadores - 2025.1
+	Projeto para a 2VA
+	Processador MonoCiclo em verilog
+	Grupo: Guilherme Oliveira Aroucha
+			 Kleber Barbosa de Fraga
+			 Pedro Henrique Apolinario da Silva
+	Descrição do arquivo: Modulo controlador da ULA
+
+
+*/
+
 // controlador da ula adaptado, os poucos bits opcode originalmente usados aqui não cabiam os zilhões de funções
 // então deixei o ula control mais burro e só lê o campo funct e mais nada
 module ula_ctrl(
-	input wire [5:0] Func,      // Entrada: apenas o campo 'funct' da instrução
-	output reg [3:0] OP         // Saída: o código da operação para a ULA
+	input wire [5:0] Func,      
+	output reg [3:0] OP         
 );
 		
 	// facilita a leitura pra não ter que abrir o arquivo da ula e ver o código de cada função

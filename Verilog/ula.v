@@ -1,3 +1,14 @@
+
+/*
+	Arquitetura e Organização de computadores - 2025.1
+	Projeto para a 2VA
+	Processador MonoCiclo em verilog
+	Grupo: Guilherme Oliveira Aroucha
+			 Kleber Barbosa de Fraga
+			 Pedro Henrique Apolinario da Silva
+	Descrição do arquivo: Modulo Unidade de logica aritmetica
+
+*/
 // ULA recebe o controle de ULA, 2 entradas de dados, e retorna um valor calculado na saida
 
 module ula(
