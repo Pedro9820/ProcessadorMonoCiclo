@@ -1,4 +1,17 @@
-// nucleo do sistema que conecta todos os modelos e faz todas as saidas e entradas de fios
+/*
+	Arquitetura e Organização de computadores - 2025.1
+	Projeto para a 2VA
+	Processador MonoCiclo em verilog
+	Grupo: Guilherme Oliveira Aroucha
+			 Kleber Barbosa de Fraga
+			 Pedro Henrique Apolinario da Silva
+	Descrição do arquivo: Nucleo do Processador que conecta todos os modulos separados
+
+
+*/
+
+
+// nucleo do sistema que conecta todos os modulos e faz todas as saidas e entradas de fios
 module ProcessadorMonoCiclo(
 	input wire Clock,
 	input wire Reset,
