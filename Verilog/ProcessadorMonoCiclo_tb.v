@@ -79,7 +79,7 @@ end
         reset_tb = 1;
         #15;
         reset_tb = 0;
-        #600; // deve ser o suficiente pra durar a simulação
+        #800; // deve ser o suficiente pra durar a simulação
         $display("------ FIM DA SIMULACAO ------");
         $finish;
     end

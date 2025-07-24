@@ -44,7 +44,7 @@ case (OP)
 	// -----Operações de Shift-----
 	4'b1001: result = ln2 << ln1[4:0]; 					// SLLV 
 	4'b1010: result = ln1 >> ln2[4:0]; 					// SRL
-	4'b1011: result = ln1 >>> ln2[4:0];					// SRAV
+	4'b1011: result = s_ln2 >>> ln1[4:0];					// SRAV e SRA
 	4'b1100: result = ln1 << 16; 						//lui
 	
 	default: result = 32'b0; // retorna 0 caso não ache qual operação fazer

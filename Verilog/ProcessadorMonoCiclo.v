@@ -33,6 +33,7 @@ module ProcessadorMonoCiclo(
 // Estagio IF
 wire [31:0] PC_next, PC_maismais; // essa linguagem arcaica não tem PC++ ou PC += 4
 wire [31:0] instruction;
+wire jr = (instruction[31:26] == 6'b000000) && (instruction[5:0] == 6'b001000); // caso seja uma função de jr
 
 // sinais de controle
 wire RegDst, Branch, MemRead, MemtoReg, MemWrite, Jump, ALUSrc, RegWrite, ALUTipoR;
@@ -134,7 +135,9 @@ ula_ctrl ula_ctrl_componente(
 // e tem o usa_shamt pra ver se vai usar o campo de shamt, principal pro SLL que quebrou as pernas do processador
 assign alu_op_correta = (ALUTipoR) ? alu_op_tipoR: ALUnaoR; // mux para ver se é operação do tipo R ou não
 assign alu_input_2 = (ALUSrc) ? sign_extended: read_data_2; //mux para ver se usa outro registrador como entrada, ou extensão de bit
-assign usa_shamt = (alu_op_correta == 4'b1001 && instruction[5:0] == 6'b000000); // SLL, odeio essa operação, ta bugando tudo
+assign usa_shamt = (alu_op_correta == 4'b1001 && instruction[5:0] == 6'b000000) || 
+                   (alu_op_correta == 4'b1011 && instruction[5:0] == 6'b000011); // SRA
+																												// SLL, odeio essa operação, ta bugando tudo
 assign valor_shiftado_entrada = (usa_shamt) ? {27'b0, instruction[10:6]} : read_data_1;
 
 
@@ -174,7 +177,10 @@ assign eh_branch = (instruction[31:26] == 6'b000100) ? (Branch & Zero_flag) : //
 						 // vai usar o sinal de branch e ao mesmo tempo já vai calculando o possivel salto, se for confirmado, ele ja usa o salto, se não só ignora
 assign Jump_address = { PC_maismais[31:28], instruction[25:0], 2'b00 }; // fio para enviar o endereço do salto pra o PC
 assign Decisao_branch_pc = (eh_branch) ? branch_address: PC_maismais; // se não é branch, so faz pc + 4;
-assign PC_next = (Jump) ? Jump_address : Decisao_branch_pc; // se a flag de jump ta ligada, é pq a instrução é de jumpar
+assign PC_next = (jr) ? read_data_1 : // se a flag de jump ta ligada, é pq a instrução é de jumpar
+                 (Jump) ? Jump_address :
+                 Decisao_branch_pc;
+
 
 
 //debug pro  teste bench
